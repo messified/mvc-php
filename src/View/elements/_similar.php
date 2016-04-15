@@ -9,7 +9,7 @@
 <!-- Middle column: Similar Movies -->
 <div class="col-md-6">
 	<p>Similar Movies:</p>
-	<?php include "elements/_list.php"; ?>
+	<?php include "_list.php"; ?>
 </div>
 
 <!-- Right column: User's history (last 20 movies clicked) -->
