@@ -1,7 +1,6 @@
-
 <!-- Left column: Selected movie image and description -->
 <div class="col-md-2">
-	<div><img src="<?php echo $movie->poster_path; ?>" class="img-thumbnail" width="150" height="225"></div>
+	<div><img src="<?php echo 'http://image.tmdb.org/t/p/w154'.$movie->poster_path; ?>" class="img-thumbnail" width="150" height="225"></div>
 	<h4><?php echo $movie->title; ?></h4>
 	<p><?php echo $movie->overview; ?></p>
 </div>

@@ -1,36 +1,36 @@
 <?php
 
-    namespace App;
+namespace App;
 
-    use App\Controller\MoviesController;
-    use App\Model\Movie;
-    use App\View\View;
+use App\Controller\MoviesController;
+use App\Model\Movie;
+use App\View\View;
 
-    class Router
+class Router
+{
+    public function Route()
     {
-        public function Route()
-        {
-            $view = new View();
-            $model = new Movie();
-            $controller = new MoviesController($view, $model);
+        $view = new View();
+        $model = new Movie();
+        $controller = new MoviesController($view, $model);
 
-            if (!isset($_GET['action'])) {
-                $_GET['action'] = 'index';
-            }
+        if (!isset($_GET['action'])) {
+            $_GET['action'] = 'index';
+        }
 
-            switch ($_GET['action']) {
-                case 'index':
-                    $controller->indexAction();
-                    break;
-                case 'search':
-                    $controller->searchAction();
-                    break;
-                case 'similar':
-                    $controller->searchAction('similar');
-                    break;
-                default:
-                    $controller->indexAction();
-                    break;
-            }
+        switch ($_GET['action']) {
+            case 'index':
+                $controller->indexAction();
+                break;
+            case 'search':
+                $controller->searchAction();
+                break;
+            case 'similar':
+                $controller->searchSimilarAction($_GET['id']);
+                break;
+            default:
+                $controller->indexAction();
+                break;
         }
     }
+}
